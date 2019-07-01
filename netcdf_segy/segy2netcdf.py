@@ -61,7 +61,7 @@ def segy2netcdf(segy_path, netcdf_path, samples_dim_name=None, d=(),
     if not samples_dim_name:
         samples_dim_name = 'SampleNumber'
 
-    with segyio.open(segy_path) as segy:
+    with segyio.open(segy_path, 'r', strict=False) as segy:
         ns = len(segy.samples)
         ntraces = segy.tracecount
 
